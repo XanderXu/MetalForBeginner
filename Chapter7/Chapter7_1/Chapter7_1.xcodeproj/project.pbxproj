@@ -12,20 +12,24 @@
 		6C39BA3E252C0EC70087D88C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C39BA3D252C0EC70087D88C /* GameViewController.swift */; };
 		6C39BA41252C0EC70087D88C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C39BA3F252C0EC70087D88C /* Main.storyboard */; };
 		6C39BA43252C0ECB0087D88C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C39BA42252C0ECB0087D88C /* Assets.xcassets */; };
-		6C39BA67252D80390087D88C /* Simple.metal in Sources */ = {isa = PBXBuildFile; fileRef = 6C39BA66252D80390087D88C /* Simple.metal */; };
-		6C39BA6A252D85EB0087D88C /* Colorful.metal in Sources */ = {isa = PBXBuildFile; fileRef = 6C39BA69252D85EB0087D88C /* Colorful.metal */; };
+		6CBDD17B252ECA81005CF232 /* normal_map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6CBDD17A252ECA81005CF232 /* normal_map.jpg */; };
+		6CBDD180252ECA8F005CF232 /* drops_technique.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6CBDD17D252ECA8F005CF232 /* drops_technique.plist */; };
+		6CBDD181252ECA8F005CF232 /* drops.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6CBDD17E252ECA8F005CF232 /* drops.vsh */; };
+		6CBDD182252ECA90005CF232 /* drops.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6CBDD17F252ECA8F005CF232 /* drops.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6C39BA36252C0EC70087D88C /* Chapter6_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chapter6_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C39BA36252C0EC70087D88C /* Chapter7_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chapter7_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C39BA39252C0EC70087D88C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C39BA3B252C0EC70087D88C /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		6C39BA3D252C0EC70087D88C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		6C39BA40252C0EC70087D88C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6C39BA42252C0ECB0087D88C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C39BA44252C0ECB0087D88C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C39BA66252D80390087D88C /* Simple.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Simple.metal; sourceTree = "<group>"; };
-		6C39BA69252D85EB0087D88C /* Colorful.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Colorful.metal; sourceTree = "<group>"; };
+		6CBDD17A252ECA81005CF232 /* normal_map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = normal_map.jpg; sourceTree = "<group>"; };
+		6CBDD17D252ECA8F005CF232 /* drops_technique.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = drops_technique.plist; sourceTree = "<group>"; };
+		6CBDD17E252ECA8F005CF232 /* drops.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = drops.vsh; sourceTree = "<group>"; };
+		6CBDD17F252ECA8F005CF232 /* drops.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = drops.fsh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +46,7 @@
 		6C39BA2D252C0EC70087D88C = {
 			isa = PBXGroup;
 			children = (
-				6C39BA38252C0EC70087D88C /* Chapter6_1 */,
+				6C39BA38252C0EC70087D88C /* Chapter7_1 */,
 				6C39BA37252C0EC70087D88C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,32 +54,34 @@
 		6C39BA37252C0EC70087D88C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6C39BA36252C0EC70087D88C /* Chapter6_1.app */,
+				6C39BA36252C0EC70087D88C /* Chapter7_1.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6C39BA38252C0EC70087D88C /* Chapter6_1 */ = {
+		6C39BA38252C0EC70087D88C /* Chapter7_1 */ = {
 			isa = PBXGroup;
 			children = (
 				6C39BA39252C0EC70087D88C /* AppDelegate.swift */,
 				6C39BA3B252C0EC70087D88C /* art.scnassets */,
 				6C39BA3D252C0EC70087D88C /* GameViewController.swift */,
-				6C39BA66252D80390087D88C /* Simple.metal */,
-				6C39BA69252D85EB0087D88C /* Colorful.metal */,
+				6CBDD17A252ECA81005CF232 /* normal_map.jpg */,
+				6CBDD17D252ECA8F005CF232 /* drops_technique.plist */,
+				6CBDD17F252ECA8F005CF232 /* drops.fsh */,
+				6CBDD17E252ECA8F005CF232 /* drops.vsh */,
 				6C39BA3F252C0EC70087D88C /* Main.storyboard */,
 				6C39BA42252C0ECB0087D88C /* Assets.xcassets */,
 				6C39BA44252C0ECB0087D88C /* Info.plist */,
 			);
-			path = Chapter6_1;
+			path = Chapter7_1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6C39BA35252C0EC70087D88C /* Chapter6_1 */ = {
+		6C39BA35252C0EC70087D88C /* Chapter7_1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C39BA47252C0ECB0087D88C /* Build configuration list for PBXNativeTarget "Chapter6_1" */;
+			buildConfigurationList = 6C39BA47252C0ECB0087D88C /* Build configuration list for PBXNativeTarget "Chapter7_1" */;
 			buildPhases = (
 				6C39BA32252C0EC70087D88C /* Sources */,
 				6C39BA33252C0EC70087D88C /* Frameworks */,
@@ -85,9 +91,9 @@
 			);
 			dependencies = (
 			);
-			name = Chapter6_1;
+			name = Chapter7_1;
 			productName = Chapter5_1;
-			productReference = 6C39BA36252C0EC70087D88C /* Chapter6_1.app */;
+			productReference = 6C39BA36252C0EC70087D88C /* Chapter7_1.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -104,7 +110,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6C39BA31252C0EC70087D88C /* Build configuration list for PBXProject "Chapter6_1" */;
+			buildConfigurationList = 6C39BA31252C0EC70087D88C /* Build configuration list for PBXProject "Chapter7_1" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -117,7 +123,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6C39BA35252C0EC70087D88C /* Chapter6_1 */,
+				6C39BA35252C0EC70087D88C /* Chapter7_1 */,
 			);
 		};
 /* End PBXProject section */
@@ -128,8 +134,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C39BA3C252C0EC70087D88C /* art.scnassets in Resources */,
+				6CBDD182252ECA90005CF232 /* drops.fsh in Resources */,
 				6C39BA43252C0ECB0087D88C /* Assets.xcassets in Resources */,
+				6CBDD180252ECA8F005CF232 /* drops_technique.plist in Resources */,
 				6C39BA41252C0EC70087D88C /* Main.storyboard in Resources */,
+				6CBDD181252ECA8F005CF232 /* drops.vsh in Resources */,
+				6CBDD17B252ECA81005CF232 /* normal_map.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,8 +150,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C39BA67252D80390087D88C /* Simple.metal in Sources */,
-				6C39BA6A252D85EB0087D88C /* Colorful.metal in Sources */,
 				6C39BA3E252C0EC70087D88C /* GameViewController.swift in Sources */,
 				6C39BA3A252C0EC70087D88C /* AppDelegate.swift in Sources */,
 			);
@@ -282,12 +290,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Chapter6_1/Info.plist;
+				INFOPLIST_FILE = Chapter7_1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.shader.Chapter6-1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shader.Chapter7-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -299,12 +307,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Chapter6_1/Info.plist;
+				INFOPLIST_FILE = Chapter7_1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.shader.Chapter6-1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shader.Chapter7-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -314,7 +322,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6C39BA31252C0EC70087D88C /* Build configuration list for PBXProject "Chapter6_1" */ = {
+		6C39BA31252C0EC70087D88C /* Build configuration list for PBXProject "Chapter7_1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C39BA45252C0ECB0087D88C /* Debug */,
@@ -323,7 +331,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C39BA47252C0ECB0087D88C /* Build configuration list for PBXNativeTarget "Chapter6_1" */ = {
+		6C39BA47252C0ECB0087D88C /* Build configuration list for PBXNativeTarget "Chapter7_1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C39BA48252C0ECB0087D88C /* Debug */,
