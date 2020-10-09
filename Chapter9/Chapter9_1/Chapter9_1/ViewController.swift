@@ -63,12 +63,13 @@ class ViewController: UIViewController, MTKViewDelegate, ARSessionDelegate {
         session.pause()
     }
     
-    @objc
+    @objc //点击添加锚点
     func handleTap(gestureRecognize: UITapGestureRecognizer) {
         // Create anchor using the camera's current position
         if let currentFrame = session.currentFrame {
             
             // Create a transform with a translation of 0.2 meters in front of the camera
+            // 在相机正前方 0.2 米处，放置一个锚点
             var translation = matrix_identity_float4x4
             translation.columns.3.z = -0.2
             let transform = simd_mul(currentFrame.camera.transform, translation)
