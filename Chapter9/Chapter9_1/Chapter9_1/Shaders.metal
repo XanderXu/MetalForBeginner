@@ -26,10 +26,12 @@ typedef struct {
 
 
 // Captured image vertex function
+// 背景图像的顶点着色器
 vertex ImageColorInOut capturedImageVertexTransform(ImageVertex in [[stage_in]]) {
     ImageColorInOut out;
     
     // Pass through the image vertex's position
+    // 无需 MVP 变换
     out.position = float4(in.position, 0.0, 1.0);
     
     // Pass through the texture coordinate
@@ -39,6 +41,7 @@ vertex ImageColorInOut capturedImageVertexTransform(ImageVertex in [[stage_in]])
 }
 
 // Captured image fragment function
+// 背景图像的片元着色器
 fragment float4 capturedImageFragmentShader(ImageColorInOut in [[stage_in]],
                                             texture2d<float, access::sample> capturedImageTextureY [[ texture(kTextureIndexY) ]],
                                             texture2d<float, access::sample> capturedImageTextureCbCr [[ texture(kTextureIndexCbCr) ]]) {
@@ -59,6 +62,7 @@ fragment float4 capturedImageFragmentShader(ImageColorInOut in [[stage_in]],
                           capturedImageTextureCbCr.sample(colorSampler, in.texCoord).rg, 1.0);
     
     // Return converted RGB color
+    // 将 YCbCr 转换到 RGB
     return ycbcrToRGBTransform * ycbcr;
 }
 
@@ -79,6 +83,7 @@ typedef struct {
 
 
 // Anchor geometry vertex function
+// 锚点的顶点着色器
 vertex ColorInOut anchorGeometryVertexTransform(Vertex in [[stage_in]],
                                                 constant SharedUniforms &sharedUniforms [[ buffer(kBufferIndexSharedUniforms) ]],
                                                 constant InstanceUniforms *instanceUniforms [[ buffer(kBufferIndexInstanceUniforms) ]],
@@ -93,9 +98,11 @@ vertex ColorInOut anchorGeometryVertexTransform(Vertex in [[stage_in]],
     float4x4 modelViewMatrix = sharedUniforms.viewMatrix * modelMatrix;
     
     // Calculate the position of our vertex in clip space and output for clipping and rasterization
+    // MVP 变换
     out.position = sharedUniforms.projectionMatrix * modelViewMatrix * position;
     
     // Color each face a different color
+    // 区分不同的面，显示不同颜色
     ushort colorID = vid / 4 % 6;
     out.color = colorID == 0 ? float4(0.0, 1.0, 0.0, 1.0) // Right face
               : colorID == 1 ? float4(1.0, 0.0, 0.0, 1.0) // Left face
@@ -105,9 +112,11 @@ vertex ColorInOut anchorGeometryVertexTransform(Vertex in [[stage_in]],
               : float4(1.0, 1.0, 1.0, 1.0); // Front face
     
     // Calculate the position of our vertex in eye space
+    // 计算相机坐标系中顶点的位置，此处是为了给下一步片元着色器中计算高光使用
     out.eyePosition = half3((modelViewMatrix * position).xyz);
     
     // Rotate our normals to world coordinates
+    // 模型法线，转到世界坐标系，此处是为了给下一步片元着色器中计算高光使用
     float4 normal = modelMatrix * float4(in.normal.x, in.normal.y, in.normal.z, 0.0f);
     out.normal = normalize(half3(normal.xyz));
     
@@ -115,12 +124,14 @@ vertex ColorInOut anchorGeometryVertexTransform(Vertex in [[stage_in]],
 }
 
 // Anchor geometry fragment function
+// 锚点的片元着色器
 fragment float4 anchorGeometryFragmentLighting(ColorInOut in [[stage_in]],
                                                constant SharedUniforms &uniforms [[ buffer(kBufferIndexSharedUniforms) ]]) {
     
     float3 normal = float3(in.normal);
     
     // Calculate the contribution of the directional light as a sum of diffuse and specular terms
+    // 计算直射光线的漫反射和镜面反射。Blinn-Phong 光照模型
     float3 directionalContribution = float3(0);
     {
         // Light falls off based on how closely aligned the surface normal is to the light direction
@@ -131,6 +142,7 @@ fragment float4 anchorGeometryFragmentLighting(ColorInOut in [[stage_in]],
         float3 diffuseTerm = uniforms.directionalLightColor * nDotL;
         
         // Apply specular lighting...
+        // Blinn-Phong模型与Phong模型的区别是，把dot(eyePosition,R)(R 为光线反射向量)换成了dot(normal,halfwayVector)，其中halfwayVector为半角向量，位于法线normal和光线uniforms.directionalLightDirection的角平分线方向。
         
         // 1) Calculate the halfway vector between the light direction and the direction they eye is looking
         float3 halfwayVector = normalize(-uniforms.directionalLightDirection - float3(in.eyePosition));
@@ -146,19 +158,23 @@ fragment float4 anchorGeometryFragmentLighting(ColorInOut in [[stage_in]],
         float3 specularTerm = uniforms.directionalLightColor * specularIntensity;
         
         // Calculate total contribution from this light is the sum of the diffuse and specular values
+        // 计算总和
         directionalContribution = diffuseTerm + specularTerm;
     }
     
     // The ambient contribution, which is an approximation for global, indirect lighting, is
     // the product of the ambient light intensity multiplied by the material's reflectance
+    // 环境光
     float3 ambientContribution = uniforms.ambientLightColor;
     
     // Now that we have the contributions our light sources in the scene, we sum them together
     // to get the fragment's lighting value
+    // 总光照
     float3 lightContributions = ambientContribution + directionalContribution;
     
     // We compute the final color by multiplying the sample from our color maps by the fragment's
     // lighting value
+    // 总光照下的颜色
     float3 color = in.color.rgb * lightContributions;
     
     // We use the color we just computed and the alpha channel of our
