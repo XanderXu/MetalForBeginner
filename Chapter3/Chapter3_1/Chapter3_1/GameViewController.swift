@@ -56,7 +56,9 @@ class GameViewController: UIViewController {
         // configure the view
         scnView.backgroundColor = UIColor.black
         
-        func3(scene: scene)
+        func1(scene: scene)
+//        func2(scene: scene)
+//        func3(scene: scene)
     }
     
     func func1(scene:SCNScene) {

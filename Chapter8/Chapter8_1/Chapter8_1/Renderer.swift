@@ -315,7 +315,8 @@ func matrix4x4_translation(_ translationX: Float, _ translationY: Float, _ trans
 func matrix_perspective_right_hand(fovyRadians fovy: Float, aspectRatio: Float, nearZ: Float, farZ: Float) -> matrix_float4x4 {
     let ys = 1 / tanf(fovy * 0.5)
     let xs = ys / aspectRatio
-    let zs = farZ / (nearZ - farZ)//nearZ 比较小，farZ 比较大，所以 zs 是个负数。这里本质是实现了坐标系反转
+    let zs = farZ / (nearZ - farZ)//nearZ 比较小，farZ 比较大，所以 zs 是个负数
+    //这里本质是实现了坐标系反转，透视变形的同时，从右手系转左手系NDC。在前面开发中 SceneKit 自动实现了这个过程，这里需要我们自己实现。
     return matrix_float4x4.init(columns:(vector_float4(xs,  0, 0,   0),
                                          vector_float4( 0, ys, 0,   0),
                                          vector_float4( 0,  0, zs, -1),

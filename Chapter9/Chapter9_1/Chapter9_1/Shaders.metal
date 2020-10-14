@@ -142,7 +142,8 @@ fragment float4 anchorGeometryFragmentLighting(ColorInOut in [[stage_in]],
         float3 diffuseTerm = uniforms.directionalLightColor * nDotL;
         
         // Apply specular lighting...
-        // Blinn-Phong模型与Phong模型的区别是，把dot(eyePosition,R)(R 为光线反射向量)换成了dot(normal,halfwayVector)，其中halfwayVector为半角向量，位于法线normal和光线uniforms.directionalLightDirection的角平分线方向。
+        // Blinn-Phong模型与Phong模型的区别是，把dot(eyePosition,R)(R 为光线反射向量)换成了dot(normal,halfwayVector)，其中halfwayVector为中间向量，位于视点方向（- float3(in.eyePosition)）和光源方向（-uniforms.directionalLightDirection）的角平分线方向。
+        // 下面 1、2、3 步计算，都是在世界坐标中完成的：uniforms.directionalLightDirection是外部传入常量，方向固定；- float3(in.eyePosition)就是将片元（可以简单理解为像素）相对于摄像机的坐标，转成了摄像机相对于片元的坐标； normal 在上一步中从模型空间变换到了世界坐标中。
         
         // 1) Calculate the halfway vector between the light direction and the direction they eye is looking
         float3 halfwayVector = normalize(-uniforms.directionalLightDirection - float3(in.eyePosition));
