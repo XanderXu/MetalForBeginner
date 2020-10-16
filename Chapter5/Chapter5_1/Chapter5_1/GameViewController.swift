@@ -96,7 +96,7 @@ class GameViewController: UIViewController {
         // 这里一定要拿到 geometry 所在的 node
         let ship = scene.rootNode.childNode(withName: "shipMesh", recursively: true)!
         
-        // Blinn-Phong 光照模型：Blinn-Phong模型与Phong模型的区别是，把dot(_surface.view,R)(R 为光线反射向量)换成了dot(_surface.normal,halfVector)，其中halfVector为半角向量，位于法线_surface.normal和光线_light.direction的角平分线方向。
+        // Blinn-Phong 光照模型：Blinn-Phong模型与Phong模型的区别是，把dot(_surface.view,R)(R 为光线反射向量)换成了dot(_surface.normal,halfVector)，其中halfVector为半角向量，位于相机方向_surface.view和光源方向_light.direction的角平分线方向。
         let shader = """
                              float dotProduct = (0.5 + max(0.0, dot(_surface.normal,_light.direction))) / (1 + 0.5);
                              _lightingContribution.diffuse += (dotProduct * _light.intensity.rgb);

@@ -398,6 +398,7 @@ class Renderer {
             let anchor = frame.anchors[index + anchorOffset]
             
             // Flip Z axis to convert geometry from right handed to left handed
+            // 注意这里反转了模型的坐标系，从右手系变成了左手系
             var coordinateSpaceTransform = matrix_identity_float4x4
             coordinateSpaceTransform.columns.2.z = -1.0
             
@@ -483,7 +484,9 @@ class Renderer {
         renderEncoder.pushDebugGroup("DrawAnchors")
         
         // Set render command encoder state
-        renderEncoder.setCullMode(.back)
+        renderEncoder.setCullMode(.back) // 背面剔除
+        // 注意这里没有设置三角形正面方向，默认为顺时针.clockwise，所以需要反转模型坐标系。上一节中设置为 renderEncoder.setFrontFacing(.counterClockwise)，故无需反转。（SceneKit 中也是逆时针.counterClockwise）
+        
         renderEncoder.setRenderPipelineState(anchorPipelineState)
         renderEncoder.setDepthStencilState(anchorDepthState)
         
