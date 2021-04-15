@@ -3,16 +3,16 @@ using namespace metal;
 #include <SceneKit/scn_metal>
 
 struct custom_node_t3 {
-    float4x4 modelTransform;
-    float4x4 modelViewTransform;
-    float4x4 normalTransform;
+//    float4x4 modelTransform;
+//    float4x4 modelViewTransform;
+//    float4x4 normalTransform;
     float4x4 modelViewProjectionTransform;
 };
 
 struct custom_vertex_t
 {
     float4 position [[attribute(SCNVertexSemanticPosition)]];
-    float4 normal [[attribute(SCNVertexSemanticNormal)]];
+//    float4 normal [[attribute(SCNVertexSemanticNormal)]];
 };
 
 struct out_vertex_t
@@ -37,7 +37,7 @@ vertex out_vertex_t mask_vertex(custom_vertex_t in [[stage_in]],
 fragment half4 mask_fragment(out_vertex_t in [[stage_in]],
                                           texture2d<float, access::sample> colorSampler [[texture(0)]])
 {
-    constexpr sampler sampler2d(coord::normalized, filter::linear, address::repeat);
+//    constexpr sampler sampler2d(coord::normalized, filter::linear, address::repeat);
     return half4(1.0);
 };
 

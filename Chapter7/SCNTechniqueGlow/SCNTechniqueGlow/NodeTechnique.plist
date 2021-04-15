@@ -20,8 +20,6 @@
 			<dict>
 				<key>colorSampler</key>
 				<string>COLOR</string>
-				<key>aPos</key>
-				<string>vertexSymbol</string>
 			</dict>
 			<key>outputs</key>
 			<dict>
@@ -38,8 +36,6 @@
 			</dict>
 			<key>inputs</key>
 			<dict>
-				<key>aPos</key>
-				<string>vertexSymbol</string>
 				<key>colorSampler</key>
 				<string>COLOR</string>
 				<key>maskSampler</key>
@@ -70,8 +66,6 @@
 			</dict>
 			<key>inputs</key>
 			<dict>
-				<key>aPos</key>
-				<string>vertexSymbol</string>
 				<key>maskSampler</key>
 				<string>MASK</string>
 			</dict>
@@ -98,8 +92,6 @@
 			</dict>
 			<key>inputs</key>
 			<dict>
-				<key>aPos</key>
-				<string>vertexSymbol</string>
 				<key>maskSampler</key>
 				<string>MASK</string>
 			</dict>
@@ -133,11 +125,6 @@
 		<dict>
 			<key>type</key>
 			<string>vec3</string>
-		</dict>
-		<key>vertexSymbol</key>
-		<dict>
-			<key>semantic</key>
-			<string>vertex</string>
 		</dict>
 	</dict>
 	<key>targets</key>
