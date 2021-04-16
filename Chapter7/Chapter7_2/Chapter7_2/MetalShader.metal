@@ -26,7 +26,7 @@ vertex out_vertex_t vertexShader(custom_vertex_t in [[stage_in]])
     out_vertex_t out;
     out.position = in.position;
     //反转 y 轴，并调整取值范围，从 NDC 坐标[-1～+1]到 uv 坐标[0～1]
-    out.uv = (float2(1,1) + in.position.xy * float2(1,-1)) * 0.5;
+    out.uv = float2( (in.position.x + 1.0) * 0.5, 1.0 - (in.position.y + 1.0) * 0.5 );
     return out;
 };
 
