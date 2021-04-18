@@ -1,5 +1,0 @@
-#pragma arguments //外部传入的参数
-float Amplitude;
-
-#pragma body
-_geometry.position.xyz += _geometry.normal * (Amplitude * _geometry.position.y * _geometry.position.x) * sin(scn_frame.time);
