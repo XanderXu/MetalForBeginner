@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  SceneKit1
+//  Chapter1_1
 //
 //  Created by CoderXu on 2020/10/3.
 //
