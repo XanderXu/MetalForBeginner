@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6C39BA18252C08280087D88C /* Chapter4_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chapter4_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C39BA18252C08280087D88C /* Chapter2_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chapter2_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C39BA1B252C08280087D88C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C39BA1D252C08280087D88C /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		6C39BA1F252C08280087D88C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 		6C39BA0F252C08280087D88C = {
 			isa = PBXGroup;
 			children = (
-				6C39BA1A252C08280087D88C /* Chapter4_1 */,
+				6C39BA1A252C08280087D88C /* Chapter2_1 */,
 				6C39BA19252C08280087D88C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,12 +46,12 @@
 		6C39BA19252C08280087D88C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6C39BA18252C08280087D88C /* Chapter4_1.app */,
+				6C39BA18252C08280087D88C /* Chapter2_1.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6C39BA1A252C08280087D88C /* Chapter4_1 */ = {
+		6C39BA1A252C08280087D88C /* Chapter2_1 */ = {
 			isa = PBXGroup;
 			children = (
 				6C39BA1B252C08280087D88C /* AppDelegate.swift */,
@@ -61,15 +61,15 @@
 				6C39BA24252C082C0087D88C /* Assets.xcassets */,
 				6C39BA26252C082C0087D88C /* Info.plist */,
 			);
-			path = Chapter4_1;
+			path = Chapter2_1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6C39BA17252C08280087D88C /* Chapter4_1 */ = {
+		6C39BA17252C08280087D88C /* Chapter2_1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C39BA29252C082C0087D88C /* Build configuration list for PBXNativeTarget "Chapter4_1" */;
+			buildConfigurationList = 6C39BA29252C082C0087D88C /* Build configuration list for PBXNativeTarget "Chapter2_1" */;
 			buildPhases = (
 				6C39BA14252C08280087D88C /* Sources */,
 				6C39BA15252C08280087D88C /* Frameworks */,
@@ -79,9 +79,9 @@
 			);
 			dependencies = (
 			);
-			name = Chapter4_1;
+			name = Chapter2_1;
 			productName = Chapter4_1;
-			productReference = 6C39BA18252C08280087D88C /* Chapter4_1.app */;
+			productReference = 6C39BA18252C08280087D88C /* Chapter2_1.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -98,7 +98,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6C39BA13252C08280087D88C /* Build configuration list for PBXProject "Chapter4_1" */;
+			buildConfigurationList = 6C39BA13252C08280087D88C /* Build configuration list for PBXProject "Chapter2_1" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -111,7 +111,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6C39BA17252C08280087D88C /* Chapter4_1 */,
+				6C39BA17252C08280087D88C /* Chapter2_1 */,
 			);
 		};
 /* End PBXProject section */
@@ -274,12 +274,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Chapter4_1/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Chapter2_1/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.shader.Chapter4-1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shader.Chapter2-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -291,12 +291,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Chapter4_1/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Chapter2_1/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.shader.Chapter4-1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shader.Chapter2-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -306,7 +306,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6C39BA13252C08280087D88C /* Build configuration list for PBXProject "Chapter4_1" */ = {
+		6C39BA13252C08280087D88C /* Build configuration list for PBXProject "Chapter2_1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C39BA27252C082C0087D88C /* Debug */,
@@ -315,7 +315,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C39BA29252C082C0087D88C /* Build configuration list for PBXNativeTarget "Chapter4_1" */ = {
+		6C39BA29252C082C0087D88C /* Build configuration list for PBXNativeTarget "Chapter2_1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C39BA2A252C082C0087D88C /* Debug */,
