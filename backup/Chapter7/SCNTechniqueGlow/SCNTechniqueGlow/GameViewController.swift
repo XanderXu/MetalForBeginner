@@ -1,13 +1,23 @@
 //
 //  GameViewController.swift
-//  Chapter1_1
+//  SCNTechniqueGlow
 //
-//  Created by CoderXu on 2020/10/3.
+//  Created by cc on 8/16/17.
+//  Copyright © 2017 Laan Labs. All rights reserved.
 //
 
 import UIKit
 import QuartzCore
 import SceneKit
+
+extension SCNNode {
+    func setHighlighted( _ highlighted : Bool = true, _ highlightedBitMask : Int = 2 ) {
+        categoryBitMask = highlightedBitMask
+        for child in self.childNodes {
+            child.setHighlighted()
+        }
+    }
+}
 
 class GameViewController: UIViewController {
 
@@ -58,49 +68,29 @@ class GameViewController: UIViewController {
         scnView.showsStatistics = true
         
         // configure the view
-        scnView.backgroundColor = UIColor.black
+        scnView.backgroundColor = UIColor.gray
+
         
-        // add a tap gesture recognizer
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        scnView.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc
-    func handleTap(_ gestureRecognize: UIGestureRecognizer) {
-        // retrieve the SCNView
-        let scnView = self.view as! SCNView
+        // Set the bitmask to 2 for glow
+        //ship.childNodes[0].categoryBitMask = 2
+        ship.setHighlighted()
         
-        // check what nodes are tapped
-        let p = gestureRecognize.location(in: scnView)
-        let hitResults = scnView.hitTest(p, options: [:])
-        // check that we clicked on at least one object
-        if hitResults.count > 0 {
-            // retrieved the first clicked object
-            let result = hitResults[0]
-            
-            // get its material
-            let material = result.node.geometry!.firstMaterial!
-            
-            // highlight it
-            SCNTransaction.begin()
-            SCNTransaction.animationDuration = 0.5
-            
-            // on completion - unhighlight
-            SCNTransaction.completionBlock = {
-                SCNTransaction.begin()
-                SCNTransaction.animationDuration = 0.5
-                
-                material.emission.contents = UIColor.black
-                
-                SCNTransaction.commit()
+        
+        if let path = Bundle.main.path(forResource: "NodeTechnique", ofType: "plist") {
+            if let dict = NSDictionary(contentsOfFile: path)  {
+                let dict2 = dict as! [String : AnyObject]
+                let technique = SCNTechnique(dictionary:dict2)
+
+                // set the glow color to yellow
+                let color = SCNVector3(1.0, 1.0, 0.0)
+                technique?.setValue(NSValue(scnVector3: color), forKeyPath: "glowColorSymbol")
+
+                scnView.technique = technique
             }
-            
-            material.emission.contents = UIColor.red
-            
-            SCNTransaction.commit()
         }
+        
     }
-    
+
     override var shouldAutorotate: Bool {
         return true
     }
@@ -115,6 +105,11 @@ class GameViewController: UIViewController {
         } else {
             return .all
         }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Release any cached data, images, etc that aren't in use.
     }
 
 }

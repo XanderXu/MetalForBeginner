@@ -1,8 +1,8 @@
 //
 //  GameViewController.swift
-//  Chapter1_1
+//  Chapter5_1
 //
-//  Created by CoderXu on 2020/10/3.
+//  Created by CoderXu on 2020/10/6.
 //
 
 import UIKit
@@ -39,11 +39,7 @@ class GameViewController: UIViewController {
         ambientLightNode.light!.color = UIColor.darkGray
         scene.rootNode.addChildNode(ambientLightNode)
         
-        // retrieve the ship node
-        let ship = scene.rootNode.childNode(withName: "ship", recursively: true)!
         
-        // animate the 3d object
-        ship.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 2, z: 0, duration: 1)))
         
         // retrieve the SCNView
         let scnView = self.view as! SCNView
@@ -60,44 +56,22 @@ class GameViewController: UIViewController {
         // configure the view
         scnView.backgroundColor = UIColor.black
         
-        // add a tap gesture recognizer
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        scnView.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc
-    func handleTap(_ gestureRecognize: UIGestureRecognizer) {
-        // retrieve the SCNView
-        let scnView = self.view as! SCNView
+        scnView.isPlaying = true
         
-        // check what nodes are tapped
-        let p = gestureRecognize.location(in: scnView)
-        let hitResults = scnView.hitTest(p, options: [:])
-        // check that we clicked on at least one object
-        if hitResults.count > 0 {
-            // retrieved the first clicked object
-            let result = hitResults[0]
-            
-            // get its material
-            let material = result.node.geometry!.firstMaterial!
-            
-            // highlight it
-            SCNTransaction.begin()
-            SCNTransaction.animationDuration = 0.5
-            
-            // on completion - unhighlight
-            SCNTransaction.completionBlock = {
-                SCNTransaction.begin()
-                SCNTransaction.animationDuration = 0.5
-                
-                material.emission.contents = UIColor.black
-                
-                SCNTransaction.commit()
+        technique(scnView:scnView)
+        
+    }
+    func technique(scnView:SCNView) {
+        //Drops
+        if let path = Bundle.main.path(forResource: "drops_technique", ofType: "plist") {
+            if let dico1 = NSDictionary(contentsOfFile: path)  {
+                let dico = dico1 as! [String : AnyObject]
+                //println(dico)
+                let technique = SCNTechnique(dictionary:dico)
+                //Need the screen size
+                technique?.setValue(NSValue(cgSize: scnView.frame.size.applying(CGAffineTransform(scaleX: 2.0, y: 2.0))), forKeyPath: "size_screen")
+                scnView.technique = technique
             }
-            
-            material.emission.contents = UIColor.red
-            
-            SCNTransaction.commit()
         }
     }
     
@@ -118,3 +92,4 @@ class GameViewController: UIViewController {
     }
 
 }
+

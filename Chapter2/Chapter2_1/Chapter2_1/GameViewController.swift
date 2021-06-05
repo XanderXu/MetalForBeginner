@@ -1,8 +1,8 @@
 //
 //  GameViewController.swift
-//  Chapter1_1
+//  Chapter4_1
 //
-//  Created by CoderXu on 2020/10/3.
+//  Created by CoderXu on 2020/10/6.
 //
 
 import UIKit
@@ -39,11 +39,10 @@ class GameViewController: UIViewController {
         ambientLightNode.light!.color = UIColor.darkGray
         scene.rootNode.addChildNode(ambientLightNode)
         
-        // retrieve the ship node
-        let ship = scene.rootNode.childNode(withName: "ship", recursively: true)!
-        
-        // animate the 3d object
-        ship.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 2, z: 0, duration: 1)))
+        // retrieve the box node
+        let box1 = scene.rootNode.childNode(withName: "box1", recursively: true)!
+        let box2 = scene.rootNode.childNode(withName: "box2", recursively: true)!
+        let box3 = scene.rootNode.childNode(withName: "box3", recursively: true)!
         
         // retrieve the SCNView
         let scnView = self.view as! SCNView
@@ -60,46 +59,22 @@ class GameViewController: UIViewController {
         // configure the view
         scnView.backgroundColor = UIColor.black
         
-        // add a tap gesture recognizer
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        scnView.addGestureRecognizer(tapGesture)
+        
+        let box3_worldTransform = box1.simdTransform * box2.simdTransform * box3.simdTransform
+        print(box3_worldTransform)
+        print(box3.simdWorldTransform)//与自带的simdWorldTransform比较
+        print("==================")
+        //simd_float4x4([[0.99999994, 0.0, 0.0, 0.0], [0.0, 0.99999994, 0.0, 0.0], [0.0, 0.0, 0.99999994, 0.0], [2.5, 3.5, 2.5, 1.0]])
+        //simd_float4x4([[0.99999994, 0.0, 0.0, 0.0], [0.0, 0.99999994, 0.0, 0.0], [0.0, 0.0, 0.99999994, 0.0], [2.5, 3.5, 2.5, 1.0]])
+        
+        let inverseBox3_worldTransform = simd_inverse(box3.simdTransform) * simd_inverse(box2.simdTransform) * simd_inverse(box1.simdTransform)
+        print(inverseBox3_worldTransform)
+        print(simd_inverse(box3_worldTransform))
+        //simd_float4x4([[0.99999994, 0.0, 0.0, 0.0], [0.0, 0.99999994, 0.0, 0.0], [0.0, 0.0, 0.99999994, 0.0], [-2.4999998, -3.4999998, -2.4999998, 0.9999999]])
+        //simd_float4x4([[1.0000001, 0.0, 0.0, 0.0], [0.0, 1.0000001, 0.0, 0.0], [0.0, 0.0, 1.0000001, 0.0], [-2.5, -3.5000002, -2.5, 1.0]])
     }
     
-    @objc
-    func handleTap(_ gestureRecognize: UIGestureRecognizer) {
-        // retrieve the SCNView
-        let scnView = self.view as! SCNView
-        
-        // check what nodes are tapped
-        let p = gestureRecognize.location(in: scnView)
-        let hitResults = scnView.hitTest(p, options: [:])
-        // check that we clicked on at least one object
-        if hitResults.count > 0 {
-            // retrieved the first clicked object
-            let result = hitResults[0]
-            
-            // get its material
-            let material = result.node.geometry!.firstMaterial!
-            
-            // highlight it
-            SCNTransaction.begin()
-            SCNTransaction.animationDuration = 0.5
-            
-            // on completion - unhighlight
-            SCNTransaction.completionBlock = {
-                SCNTransaction.begin()
-                SCNTransaction.animationDuration = 0.5
-                
-                material.emission.contents = UIColor.black
-                
-                SCNTransaction.commit()
-            }
-            
-            material.emission.contents = UIColor.red
-            
-            SCNTransaction.commit()
-        }
-    }
+    
     
     override var shouldAutorotate: Bool {
         return true
@@ -118,3 +93,5 @@ class GameViewController: UIViewController {
     }
 
 }
+
+
