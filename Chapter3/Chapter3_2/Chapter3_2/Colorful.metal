@@ -1,6 +1,6 @@
 //
 //  Colorful.metal
-//  Chapter6_1
+//  Chapter3_2
 //
 //  Created by CoderXu on 2020/10/7.
 //
@@ -15,22 +15,14 @@ using namespace metal;
 struct VertexInput {
     float3 position  [[attribute(SCNVertexSemanticPosition)]];
     float2 texCoords [[attribute(SCNVertexSemanticTexcoord0)]];
+    float3 normal [[attribute(SCNVertexSemanticNormal)]];
 };
 
 // 自己定义的Node输入结构体
 struct NodeBuffer {
     float4x4 modelViewProjectionTransform;
 };
-// // node 中可使用的数据如下
-//float4x4 modelTransform;
-//float4x4 inverseModelTransform;
-//float4x4 modelViewTransform;
-//float4x4 inverseModelViewTransform;
-//float4x4 normalTransform; // Inverse transpose of modelViewTransform
-//float4x4 modelViewProjectionTransform;
-//float4x4 inverseModelViewProjectionTransform;
-//float2x3 boundingBox;
-//float2x3 worldBoundingBox;
+
 
 // 自己定义的输入输出结构体：变换后的位置、纹理坐标
 struct ColorInOut
@@ -44,7 +36,9 @@ vertex ColorInOut scnVertexShader(VertexInput          in       [[ stage_in ]],
                                   constant NodeBuffer& scn_node [[ buffer(0) ]])
 {
     ColorInOut out;
-    out.position = scn_node.modelViewProjectionTransform * float4(in.position, 1.0);
+    //将顶点沿法线方向进行移动，然后再进行 MVP 变换
+    out.position = scn_node.modelViewProjectionTransform * float4(in.position + 5.0f * in.normal, 1.0);
+    //纹理坐标直接传递给片元着色器使用，不做更改
     out.texCoords = in.texCoords;
     
     return out;

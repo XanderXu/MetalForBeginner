@@ -1,6 +1,6 @@
 //
 //  Simple.metal
-//  Chapter6_1
+//  Chapter3_1
 //
 //  Created by CoderXu on 2020/10/7.
 //

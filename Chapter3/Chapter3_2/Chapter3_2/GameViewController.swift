@@ -1,6 +1,6 @@
 //
 //  GameViewController.swift
-//  Chapter5_1
+//  Chapter3_2
 //
 //  Created by CoderXu on 2020/10/6.
 //
@@ -58,20 +58,9 @@ class GameViewController: UIViewController {
         
         scnView.isPlaying = true
         
-//        simpleProgram(scene:scene)
         colorfulProgram(scene: scene)
     }
-    func simpleProgram(scene:SCNScene) {
-        let ship = scene.rootNode.childNode(withName: "shipMesh", recursively: true)!
-        let program = SCNProgram()
-        program.vertexFunctionName = "vertexShader"
-        program.fragmentFunctionName = "fragmentShader"
-        
-        // 赋值给**SCNGeometry**或者**SCNMaterial**
-//        ship.geometry?.program = program
-        guard let material = ship.geometry?.materials.first else { fatalError() }
-        material.program = program
-    }
+    
     func colorfulProgram(scene:SCNScene) {
         let ship = scene.rootNode.childNode(withName: "shipMesh", recursively: true)!
         let program = SCNProgram()
