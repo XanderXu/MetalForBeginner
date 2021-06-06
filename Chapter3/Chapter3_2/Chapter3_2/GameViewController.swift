@@ -58,10 +58,21 @@ class GameViewController: UIViewController {
         
         scnView.isPlaying = true
         
-        colorfulProgram(scene: scene)
+        fatColorfulProgram(scene: scene)
+//        textureProgram(scene: scene)
     }
-    
-    func colorfulProgram(scene:SCNScene) {
+    func textureProgram(scene:SCNScene) {
+        let ship = scene.rootNode.childNode(withName: "shipMesh", recursively: true)!
+        let program = SCNProgram()
+        program.vertexFunctionName = "scnVertexShader0"
+        program.fragmentFunctionName = "scnFragmentShader0"
+        
+        guard let material = ship.geometry?.materials.first else { fatalError() }
+        let texture = SCNMaterialProperty(contents: UIImage(named: "art.scnassets/texture.png") as Any)
+        material.setValue(texture, forKey: "texture")
+        material.program = program
+    }
+    func fatColorfulProgram(scene:SCNScene) {
         let ship = scene.rootNode.childNode(withName: "shipMesh", recursively: true)!
         let program = SCNProgram()
         program.vertexFunctionName = "scnVertexShader"

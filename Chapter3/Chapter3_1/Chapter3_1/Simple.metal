@@ -29,7 +29,6 @@ struct ColorInOut
 struct MyNodeData
 {
     float4x4 modelViewProjectionTransform;
-    //float2x3 boundingBox;
 };
 
 /*
@@ -37,6 +36,7 @@ struct MyNodeData
  在 Shader 中，[[]]表示有特殊用途（来自系统，或需要交给系统处理），内部的关键字是固定的，表明具体用途。
  [[stage_in]]可以简单理解为：系统自动选了一个顶点/片元，输入到顶点/片元着色器中；
  [[buffer(0)]]可以简单理解为这个参数是通过 0 号 buffer 通道传递过来的，就像去银行办理业务，0 号窗口是空的，就会排到 0 号窗口；0 号有人正在使用，会使用 1 号窗口……
+ 如果是完全自定义的数据（自己通过 KVC 传递来的，而不是从 SceneKit 获取的），需要使用 buffer 2 及以上
  */
 
 // 顶点着色器函数，输出为 ColorInOut 类型，输入为 VertexInput 类型的变量 in，和 MyNodeData 类型的变量指针 scn_node，前面的 constant 表示只读
