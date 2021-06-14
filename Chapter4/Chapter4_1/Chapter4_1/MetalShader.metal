@@ -35,14 +35,20 @@ fragment half4 fragmentShader(out_vertex_t in [[stage_in]],
                               texture2d<float, access::sample> normalSampler [[texture(0)]],
                               texture2d<float, access::sample> colorSampler [[texture(1)]])
 {
-    float2 new_uv = fract((in.uv - 0.5)/(float2(scn_frame.viewportSize.y/scn_frame.viewportSize.x,1.0)*2) + 0.5 - float2(0.0,scn_frame.time*0.1));
+    //将 uv 从[0，1] 调整宽高比与屏幕比例相同，并按时间进行移动，1.8 是控制整体缩放倍数即雨滴的大小
+    float2 new_uv = fract((in.uv - 0.5) / (float2(scn_frame.viewportSize.y/scn_frame.viewportSize.x,1.0)*1.8) - float2(0.0,scn_frame.time*0.1));
     
     constexpr sampler s = sampler(coord::normalized,
                                   r_address::clamp_to_edge,
                                   t_address::clamp_to_edge,
                                   filter::linear);
-    float3 normal = normalSampler.sample(s, float2(new_uv.x, 1-new_uv.y)).rgb;
-    normal = normal * 2.0;
-    float3 rgb = colorSampler.sample(s, mix(in.uv, normal.xy, 0.1)).rgb;
+    //获取法线方向
+    float3 normal = normalSampler.sample(s, new_uv).rgb;
+    //增大法线范围，并校正对法线直接采样带来的偏移
+    normal = normal * 2 - 0.424;
+    //将要显示的颜色采样坐标，与法线按 9:1 混合，以达到扭曲效果
+    float2 mix_uv = mix(in.uv, normal.xy, 0.1);
+    //按扭曲后坐标采样
+    float3 rgb = colorSampler.sample(s, mix_uv).rgb;
     return half4(half3(rgb),1.0);
 };
