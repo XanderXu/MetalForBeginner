@@ -12,16 +12,24 @@
 		6C39BA3E252C0EC70087D88C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C39BA3D252C0EC70087D88C /* GameViewController.swift */; };
 		6C39BA41252C0EC70087D88C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C39BA3F252C0EC70087D88C /* Main.storyboard */; };
 		6C39BA43252C0ECB0087D88C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C39BA42252C0ECB0087D88C /* Assets.xcassets */; };
+		6C39BA52252C658B0087D88C /* geometry.shaderModifier in Resources */ = {isa = PBXBuildFile; fileRef = 6C39BA51252C658B0087D88C /* geometry.shaderModifier */; };
+		6C39BA5A252C77340087D88C /* surface.shaderModifier in Resources */ = {isa = PBXBuildFile; fileRef = 6C39BA59252C77340087D88C /* surface.shaderModifier */; };
+		6C39BA5D252C78450087D88C /* light.shaderModifier in Resources */ = {isa = PBXBuildFile; fileRef = 6C39BA5C252C78450087D88C /* light.shaderModifier */; };
+		6C39BA60252C79420087D88C /* fragment.shaderModifier in Resources */ = {isa = PBXBuildFile; fileRef = 6C39BA5F252C79420087D88C /* fragment.shaderModifier */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6C39BA36252C0EC70087D88C /* Chapter5_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chapter5_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C39BA36252C0EC70087D88C /* Chapter4_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chapter4_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C39BA39252C0EC70087D88C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C39BA3B252C0EC70087D88C /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		6C39BA3D252C0EC70087D88C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		6C39BA40252C0EC70087D88C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6C39BA42252C0ECB0087D88C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C39BA44252C0ECB0087D88C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C39BA51252C658B0087D88C /* geometry.shaderModifier */ = {isa = PBXFileReference; lastKnownFileType = text; path = geometry.shaderModifier; sourceTree = "<group>"; };
+		6C39BA59252C77340087D88C /* surface.shaderModifier */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = surface.shaderModifier; sourceTree = "<group>"; };
+		6C39BA5C252C78450087D88C /* light.shaderModifier */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = light.shaderModifier; sourceTree = "<group>"; };
+		6C39BA5F252C79420087D88C /* fragment.shaderModifier */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fragment.shaderModifier; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +46,7 @@
 		6C39BA2D252C0EC70087D88C = {
 			isa = PBXGroup;
 			children = (
-				6C39BA38252C0EC70087D88C /* Chapter5_1 */,
+				6C39BA38252C0EC70087D88C /* Chapter4_2 */,
 				6C39BA37252C0EC70087D88C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,30 +54,34 @@
 		6C39BA37252C0EC70087D88C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6C39BA36252C0EC70087D88C /* Chapter5_1.app */,
+				6C39BA36252C0EC70087D88C /* Chapter4_2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6C39BA38252C0EC70087D88C /* Chapter5_1 */ = {
+		6C39BA38252C0EC70087D88C /* Chapter4_2 */ = {
 			isa = PBXGroup;
 			children = (
 				6C39BA39252C0EC70087D88C /* AppDelegate.swift */,
 				6C39BA3B252C0EC70087D88C /* art.scnassets */,
 				6C39BA3D252C0EC70087D88C /* GameViewController.swift */,
+				6C39BA5F252C79420087D88C /* fragment.shaderModifier */,
+				6C39BA5C252C78450087D88C /* light.shaderModifier */,
+				6C39BA59252C77340087D88C /* surface.shaderModifier */,
+				6C39BA51252C658B0087D88C /* geometry.shaderModifier */,
 				6C39BA3F252C0EC70087D88C /* Main.storyboard */,
 				6C39BA42252C0ECB0087D88C /* Assets.xcassets */,
 				6C39BA44252C0ECB0087D88C /* Info.plist */,
 			);
-			path = Chapter5_1;
+			path = Chapter4_2;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6C39BA35252C0EC70087D88C /* Chapter5_1 */ = {
+		6C39BA35252C0EC70087D88C /* Chapter4_2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C39BA47252C0ECB0087D88C /* Build configuration list for PBXNativeTarget "Chapter5_1" */;
+			buildConfigurationList = 6C39BA47252C0ECB0087D88C /* Build configuration list for PBXNativeTarget "Chapter4_2" */;
 			buildPhases = (
 				6C39BA32252C0EC70087D88C /* Sources */,
 				6C39BA33252C0EC70087D88C /* Frameworks */,
@@ -79,9 +91,9 @@
 			);
 			dependencies = (
 			);
-			name = Chapter5_1;
+			name = Chapter4_2;
 			productName = Chapter5_1;
-			productReference = 6C39BA36252C0EC70087D88C /* Chapter5_1.app */;
+			productReference = 6C39BA36252C0EC70087D88C /* Chapter4_2.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -98,7 +110,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6C39BA31252C0EC70087D88C /* Build configuration list for PBXProject "Chapter5_1" */;
+			buildConfigurationList = 6C39BA31252C0EC70087D88C /* Build configuration list for PBXProject "Chapter4_2" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -111,7 +123,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6C39BA35252C0EC70087D88C /* Chapter5_1 */,
+				6C39BA35252C0EC70087D88C /* Chapter4_2 */,
 			);
 		};
 /* End PBXProject section */
@@ -123,7 +135,11 @@
 			files = (
 				6C39BA3C252C0EC70087D88C /* art.scnassets in Resources */,
 				6C39BA43252C0ECB0087D88C /* Assets.xcassets in Resources */,
+				6C39BA5A252C77340087D88C /* surface.shaderModifier in Resources */,
 				6C39BA41252C0EC70087D88C /* Main.storyboard in Resources */,
+				6C39BA5D252C78450087D88C /* light.shaderModifier in Resources */,
+				6C39BA52252C658B0087D88C /* geometry.shaderModifier in Resources */,
+				6C39BA60252C79420087D88C /* fragment.shaderModifier in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,12 +290,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Chapter5_1/Info.plist;
+				INFOPLIST_FILE = Chapter4_2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.shader.Chapter5-1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shader.Chapter4-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -291,12 +307,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Chapter5_1/Info.plist;
+				INFOPLIST_FILE = Chapter4_2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.shader.Chapter5-1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shader.Chapter4-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -306,7 +322,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6C39BA31252C0EC70087D88C /* Build configuration list for PBXProject "Chapter5_1" */ = {
+		6C39BA31252C0EC70087D88C /* Build configuration list for PBXProject "Chapter4_2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C39BA45252C0ECB0087D88C /* Debug */,
@@ -315,7 +331,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C39BA47252C0ECB0087D88C /* Build configuration list for PBXNativeTarget "Chapter5_1" */ = {
+		6C39BA47252C0ECB0087D88C /* Build configuration list for PBXNativeTarget "Chapter4_2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C39BA48252C0ECB0087D88C /* Debug */,
