@@ -44,9 +44,11 @@ fragment half4 fragmentShader(out_vertex_t in [[stage_in]],
                                   filter::linear);
     //获取法线方向
     float3 normal = normalSampler.sample(s, new_uv).rgb;
-    //增大法线范围，并校正对法线直接采样带来的偏移
-    normal = normal * 2 - 0.424;
-    //将要显示的颜色采样坐标，与法线按 9:1 混合，以达到扭曲效果
+    //gamma 校正。因为我们直接读取了 sRGB 图片，并将 RGB 值当做法线方向，需要先校正 gamma
+    normal = pow(normal, 0.45);
+    //将法线范围从[0，1]转到[-1，1]
+    normal = normal * 2 - 1;
+    //将要显示的颜色采样坐标，与法线按 9:1 混合，以达到扭曲效果，同时过度处更平滑
     float2 mix_uv = mix(in.uv, normal.xy, 0.1);
     //按扭曲后坐标采样
     float3 rgb = colorSampler.sample(s, mix_uv).rgb;
