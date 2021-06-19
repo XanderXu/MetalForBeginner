@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6CBDD194252EEA6B005CF232 /* Chapter8_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chapter8_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CBDD194252EEA6B005CF232 /* Chapter5_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chapter5_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CBDD197252EEA6B005CF232 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CBDD199252EEA6B005CF232 /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
 		6CBDD19A252EEA6B005CF232 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 		6CBDD18B252EEA6B005CF232 = {
 			isa = PBXGroup;
 			children = (
-				6CBDD196252EEA6B005CF232 /* Chapter8_1 */,
+				6CBDD196252EEA6B005CF232 /* Chapter5_1 */,
 				6CBDD195252EEA6B005CF232 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,12 +49,12 @@
 		6CBDD195252EEA6B005CF232 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6CBDD194252EEA6B005CF232 /* Chapter8_1.app */,
+				6CBDD194252EEA6B005CF232 /* Chapter5_1.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6CBDD196252EEA6B005CF232 /* Chapter8_1 */ = {
+		6CBDD196252EEA6B005CF232 /* Chapter5_1 */ = {
 			isa = PBXGroup;
 			children = (
 				6CBDD197252EEA6B005CF232 /* AppDelegate.swift */,
@@ -66,15 +66,15 @@
 				6CBDD1A3252EEA6F005CF232 /* Assets.xcassets */,
 				6CBDD1A5252EEA6F005CF232 /* Info.plist */,
 			);
-			path = Chapter8_1;
+			path = Chapter5_1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6CBDD193252EEA6B005CF232 /* Chapter8_1 */ = {
+		6CBDD193252EEA6B005CF232 /* Chapter5_1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6CBDD1A8252EEA6F005CF232 /* Build configuration list for PBXNativeTarget "Chapter8_1" */;
+			buildConfigurationList = 6CBDD1A8252EEA6F005CF232 /* Build configuration list for PBXNativeTarget "Chapter5_1" */;
 			buildPhases = (
 				6CBDD190252EEA6B005CF232 /* Sources */,
 				6CBDD191252EEA6B005CF232 /* Frameworks */,
@@ -84,9 +84,9 @@
 			);
 			dependencies = (
 			);
-			name = Chapter8_1;
+			name = Chapter5_1;
 			productName = Chapter8_1;
-			productReference = 6CBDD194252EEA6B005CF232 /* Chapter8_1.app */;
+			productReference = 6CBDD194252EEA6B005CF232 /* Chapter5_1.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -103,7 +103,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6CBDD18F252EEA6B005CF232 /* Build configuration list for PBXProject "Chapter8_1" */;
+			buildConfigurationList = 6CBDD18F252EEA6B005CF232 /* Build configuration list for PBXProject "Chapter5_1" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -116,7 +116,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6CBDD193252EEA6B005CF232 /* Chapter8_1 */,
+				6CBDD193252EEA6B005CF232 /* Chapter5_1 */,
 			);
 		};
 /* End PBXProject section */
@@ -280,12 +280,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Chapter8_1/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Chapter5_1/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.shader.Chapter8-1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shader.Chapter5-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(TARGET_NAME)/ShaderTypes.h";
 				SWIFT_VERSION = 5.0;
@@ -298,12 +298,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Chapter8_1/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Chapter5_1/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.shader.Chapter8-1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shader.Chapter5-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(TARGET_NAME)/ShaderTypes.h";
 				SWIFT_VERSION = 5.0;
@@ -314,7 +314,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6CBDD18F252EEA6B005CF232 /* Build configuration list for PBXProject "Chapter8_1" */ = {
+		6CBDD18F252EEA6B005CF232 /* Build configuration list for PBXProject "Chapter5_1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6CBDD1A6252EEA6F005CF232 /* Debug */,
@@ -323,7 +323,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6CBDD1A8252EEA6F005CF232 /* Build configuration list for PBXNativeTarget "Chapter8_1" */ = {
+		6CBDD1A8252EEA6F005CF232 /* Build configuration list for PBXNativeTarget "Chapter5_1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6CBDD1A9252EEA6F005CF232 /* Debug */,
