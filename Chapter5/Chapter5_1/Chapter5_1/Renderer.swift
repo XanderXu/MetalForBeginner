@@ -1,6 +1,6 @@
 //
 //  Renderer.swift
-//  Chapter8_1
+//  Chapter5_1
 //
 //  Created by CoderXu on 2020/10/8.
 //
@@ -15,6 +15,7 @@ import simd
 // 256 字节对齐
 let alignedUniformsSize = (MemoryLayout<Uniforms>.size + 0xFF) & -0x100
 
+//三重缓冲
 let maxBuffersInFlight = 3
 
 enum RendererError: Error {
@@ -292,7 +293,7 @@ class Renderer: NSObject, MTKViewDelegate {
     }
 }
 
-// Generic matrix math utility functions
+// Generic matrix math utility functions 这里直接将轴角方式的旋转，转换为矩阵；实际开发中我们可以借助四元数来完成同样效果，不必记住这些复杂公式
 func matrix4x4_rotation(radians: Float, axis: SIMD3<Float>) -> matrix_float4x4 {
     let unitAxis = normalize(axis)
     let ct = cosf(radians)
@@ -311,7 +312,7 @@ func matrix4x4_translation(_ translationX: Float, _ translationY: Float, _ trans
                                          vector_float4(0, 0, 1, 0),
                                          vector_float4(translationX, translationY, translationZ, 1)))
 }
-
+// 生成透视变换矩阵
 func matrix_perspective_right_hand(fovyRadians fovy: Float, aspectRatio: Float, nearZ: Float, farZ: Float) -> matrix_float4x4 {
     let ys = 1 / tanf(fovy * 0.5)
     let xs = ys / aspectRatio
