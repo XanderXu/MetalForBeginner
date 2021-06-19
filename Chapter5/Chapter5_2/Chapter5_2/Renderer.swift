@@ -29,7 +29,7 @@ let kAlignedSharedUniformsSize: Int = (MemoryLayout<SharedUniforms>.size & ~0xFF
 let kAlignedInstanceUniformsSize: Int = ((MemoryLayout<InstanceUniforms>.size * kMaxAnchorInstanceCount) & ~0xFF) + 0x100
 
 // Vertex data for an image plane
-// NDC 坐标(-1,-1)在左下角，Y 向上；纹理uv坐标(0,0) 在左上角，Y 向下
+// 每行 4 个数，前两个是NDC 坐标(-1,-1)在左下角，Y 向上；后两个是纹理uv坐标(0,0) 在左上角，Y 向下
 let kImagePlaneVertexData: [Float] = [
     -1.0, -1.0,  0.0, 1.0,//左下角
     1.0, -1.0,  1.0, 1.0,//右下角
