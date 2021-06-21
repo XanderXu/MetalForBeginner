@@ -20,11 +20,13 @@ class ViewController: UIViewController {
         
         // Add the box anchor to the scene
         arView.scene.anchors.append(boxAnchor)
-        assignGeometryShader(to: boxAnchor.steelBox?.children.first as? ModelEntity)
+        //打印 boxAnchor 层级结构，找到真正的 ModelEntity
+        if let modelEntity = boxAnchor.findEntity(named: "simpBld_root") as? ModelEntity {
+            assignGeometryShader(to:modelEntity)
+        }
     }
-    func assignGeometryShader(to modelEntry: ModelEntity?) {
-//        print(modelEntry, modelEntry?.model)
-        guard var model = modelEntry?.model else { return }
+    func assignGeometryShader(to modelEntry: ModelEntity) {
+        guard var model = modelEntry.model else { return }
         guard let library = MTLCreateSystemDefaultDevice()?.makeDefaultLibrary() else { return }
         let geometryModifier = CustomMaterial.GeometryModifier(named: "changeGeometry", in: library)
         let surfaceShader = CustomMaterial.SurfaceShader(named: "changeSurface", in: library)
@@ -32,5 +34,7 @@ class ViewController: UIViewController {
             try! CustomMaterial(from: base, surfaceShader: surfaceShader, geometryModifier: geometryModifier)
         })
         model.materials = ms
+        modelEntry.model = model// 所有的component都是结构体，即值类型，重新赋值回去才能生效
+//        modelEntry.components[ModelComponent.self] = model//与 modelEntry.model = model 等价
     }
 }
