@@ -63,10 +63,10 @@
 				6C39BA39252C0EC70087D88C /* AppDelegate.swift */,
 				6C39BA3B252C0EC70087D88C /* art.scnassets */,
 				6C39BA3D252C0EC70087D88C /* GameViewController.swift */,
-				6CBDD17A252ECA81005CF232 /* normal_map.jpg */,
 				6CBDD17D252ECA8F005CF232 /* drops_technique.plist */,
 				6CC485192545230000650889 /* MetalShader.metal */,
 				6C39BA3F252C0EC70087D88C /* Main.storyboard */,
+				6CBDD17A252ECA81005CF232 /* normal_map.jpg */,
 				6C39BA42252C0ECB0087D88C /* Assets.xcassets */,
 				6C39BA44252C0ECB0087D88C /* Info.plist */,
 			);

@@ -44,7 +44,7 @@ fragment half4 fragmentShader(out_vertex_t in [[stage_in]],
                                   filter::linear);
     //获取法线方向
     float3 normal = normalSampler.sample(s, new_uv).rgb;
-    //gamma 校正。因为我们读取了 sRGB 图片，并将 RGB 值当做法线方向，需要先校正 gamma(这里其实是对解码过的真实值重新进行了 gamma 编码)。
+    //gamma 重新编码。因为我们读取了 sRGB 图片，并试图将 RGB 值当做法线方向，而 Metal 默认自动解码 sRGB 图片，需要先校正 gamma (这里其实是对解码后的值重新进行了 gamma 编码)。
     normal = pow(normal, 0.45);
     //将法线范围从[0，1]转到[-1，1]
     normal = normal * 2 - 1;

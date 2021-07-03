@@ -1,0 +1,15 @@
+{
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "levels" : [
+    {
+      "filename" : "normal_map2.jpg",
+      "mipmap-level" : "base"
+    }
+  ],
+  "properties" : {
+    "level-mode" : "none"
+  }
+}
