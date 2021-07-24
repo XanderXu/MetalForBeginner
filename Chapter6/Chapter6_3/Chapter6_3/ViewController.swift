@@ -109,19 +109,17 @@ extension ViewController {
         guard let model = self.model else { return }
         let request = VNCoreMLRequest(model: model) { (finishedRequest, error) in
             self.inFlight = false
-            DispatchQueue.main.async(execute: {
-                guard let results = finishedRequest.results as? [VNPixelBufferObservation] ,let observation = results.first else {
-                    return
-                }
-                let ciimage = CIImage(cvImageBuffer: observation.pixelBuffer)
-                //裁剪放大到全屏，保存
-                let affine = CIFilter(name: "CIAffineTransform")!
-                affine.setValue(ciimage.cropped(to:CGRect(x: 0, y: 0, width: scaledWidth, height: 512)), forKey: "inputImage")
-                let trans = CGAffineTransform(scaleX: 1/scale, y: 1/scale)
-                affine.setValue(trans, forKey: "inputTransform")
-                
-                self.lastImage = affine.outputImage
-            })
+            guard let results = finishedRequest.results as? [VNPixelBufferObservation] ,let observation = results.first else {
+                return
+            }
+            let ciimage = CIImage(cvImageBuffer: observation.pixelBuffer)
+            //裁剪放大到全屏，保存
+            let affine = CIFilter(name: "CIAffineTransform")!
+            affine.setValue(ciimage.cropped(to:CGRect(x: 0, y: 0, width: scaledWidth, height: 512)), forKey: "inputImage")
+            let trans = CGAffineTransform(scaleX: 1/scale, y: 1/scale)
+            affine.setValue(trans, forKey: "inputTransform")
+            
+            self.lastImage = affine.outputImage
         }
         
         
