@@ -61,13 +61,10 @@ class ViewController: UIViewController {
 }
 extension ViewController {
     func styleTransfer(_ context: ARView.PostProcessContext) {
-        //借用 mps 将源图像输出到屏幕上
-        let brightness = MPSImageThresholdToZero(device: context.device,
-                                                 thresholdValue: 0,
-                                                 linearGrayColorTransform: nil)
-        brightness.encode(commandBuffer: context.commandBuffer,
-                          sourceTexture: context.sourceColorTexture,
-                          destinationTexture: context.targetColorTexture)
+        //将 sourceColorTexture 复制到 targetColorTexture
+        let blitEncoder = context.commandBuffer.makeBlitCommandEncoder()
+        blitEncoder?.copy(from: context.sourceColorTexture, to: context.targetColorTexture)
+        blitEncoder?.endEncoding()
         
         if inFlight {//上一帧没处理完，不再处理下一帧
             return
